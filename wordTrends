@@ -1,0 +1,7 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+word_trends = pd.read_csv('animal-word-trends.csv')
+def plot_animal( animal ):
+    trend = word_trends.query("word == @animal")
+    plt.plot(trend['year'], trend['frequency'], label=animal)
+    plt.ylabel('Frequency per million')
